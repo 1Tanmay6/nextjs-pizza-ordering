@@ -1,0 +1,80 @@
+.main-button-div {
+  top: 70%;
+  color: #b00f1a;
+  width: 1000px;
+  justify-content: space-evenly;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0d9d9;
+
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left: 27%;
+  width: 700px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  justify-content: space-evenly;
+}
+
+.btn-main {
+  background-color: #d41b27;
+  width: 225px;
+  height: 65px;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 22px;
+  transition: all 0.5s ease-out;
+  box-shadow: 0px 2px #948586;
+}
+
+.btn-main:hover {
+  background-color: #b00f1a;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+.special-btn {
+  background-color: transparent;
+  width: 225px;
+  height: 65px;
+  border: 1px solid #d41b27;
+  border-radius: 100px;
+  color: #d41b27;
+  font-size: 22px;
+}
+
+.animate {
+  background: linear-gradient(to right, #d41b27 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+
+.special-btn.animate:hover {
+  background-position: left top;
+  cursor: pointer;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.special-btn.animate:disabled {
+  background-color: transparent;
+  color: #948586;
+  border-color: #948586;
+
+  cursor: not-allowed;
+}
+
+.not-animate {
+  background-color: transparent;
+  color: #948586;
+  border-color: #948586;
+
+  cursor: not-allowed;
+}

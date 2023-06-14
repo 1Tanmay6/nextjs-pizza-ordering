@@ -1,0 +1,33 @@
+.option-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+
+  transition: all 0.3s ease-out;
+}
+
+.option-btn:hover {
+  color: #d41b27;
+  cursor: pointer;
+}
+
+.option-btn:disabled {
+  color: #948586;
+  cursor: not-allowed;
+}
+
+.option-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+  background-color: #e0d9d9;
+
+  margin: 0;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

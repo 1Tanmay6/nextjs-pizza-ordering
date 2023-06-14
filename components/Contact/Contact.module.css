@@ -1,0 +1,42 @@
+/*! Content styling */
+
+.title {
+  /* For the Title */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 40px;
+  color: #000000;
+}
+
+.contain-black {
+  /* for the black containing the <p>*/
+
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: black;
+  border-radius: 20px;
+  height: 37.5vh;
+}
+
+.inner-text-prop {
+  /* for the <p> */
+  color: white;
+  font-size: 20px;
+}
+
+.contain-black::-webkit-scrollbar {
+  color: transparent;
+  width: 0px;
+}
+
+.inner-title {
+  margin-bottom: 0;
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+} /* For the Contact Us Like (Phone) */
