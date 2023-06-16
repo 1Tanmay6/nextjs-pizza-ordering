@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MongoClient } from "mongodb";
 import BaseSaucecheeseSpecialCurItem from "../../components/Menu/MenuUI/baseSauceCheese/SpecialCurItem";
 import BaseSauceCheeseListItems from "../../components/Menu/MenuUI/baseSauceCheese/ListItems";
 import { useSelector } from "react-redux";
 
-const Base = ({ baseList }) => {
+const Cheese = ({ cheeseList }) => {
   let item1 = useSelector((state) => state.item.item);
+
   console.log(item1);
   return (
     <div>
-      <BaseSaucecheeseSpecialCurItem type="Base" />
-      <BaseSauceCheeseListItems items={baseList} domain="bases" type="BASE" />
+      <BaseSaucecheeseSpecialCurItem type="Cheese" />
+      <BaseSauceCheeseListItems
+        items={cheeseList}
+        domain="cheeses"
+        type="CHEESE"
+      />
     </div>
   );
 };
@@ -24,7 +29,7 @@ export async function getStaticProps() {
   await client.connect();
 
   const dbName = "contents";
-  const collectionName = "bases";
+  const collectionName = "cheeses";
 
   const database = client.db(dbName);
   const collection = database.collection(collectionName);
@@ -35,7 +40,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      baseList: result.map((doc) => ({
+      cheeseList: result.map((doc) => ({
         id: doc._id.toString(),
         name: doc.name,
         price: doc.price,
@@ -47,4 +52,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Base;
+export default Cheese;

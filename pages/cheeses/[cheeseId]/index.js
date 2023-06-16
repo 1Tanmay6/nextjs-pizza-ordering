@@ -4,28 +4,28 @@ import { MongoClient, ObjectId } from "mongodb";
 import BaseSauceCheeseCurItem from "../../../components/Menu/MenuUI/baseSauceCheese/CurItem";
 import BaseSauceCheeseListItems from "../../../components/Menu/MenuUI/baseSauceCheese/ListItems";
 
-const BaseDetailScreen = (props) => {
+const CheeseDetailScreen = (props) => {
   const router = useRouter();
 
   return (
     <>
       <BaseSauceCheeseCurItem
         item={props.item}
-        type="BASE"
-        pushingTo="sauces"
+        type="CHEESE"
+        pushingTo="toppings"
       />
-      <BaseSauceCheeseListItems items={props.items} domain="bases" />
+      <BaseSauceCheeseListItems items={props.items} domain="cheeses" />
     </>
   );
 };
 
 // export async function getStaticProps() {
 
-export default BaseDetailScreen;
+export default CheeseDetailScreen;
 // const item = await collection.findOne({ _id: ObjectId(id) });
 
 export async function getStaticProps(context) {
-  const id = context.params.baseId;
+  const id = context.params.cheeseId;
   console.log(id);
 
   const uri =
@@ -36,7 +36,7 @@ export async function getStaticProps(context) {
   await client.connect();
 
   const dbName = "contents";
-  const collectionName = "bases";
+  const collectionName = "cheeses";
 
   const database = client.db(dbName);
   const collection = database.collection(collectionName);
@@ -75,19 +75,19 @@ export async function getStaticPaths() {
 
   await client.connect();
   const dbName = "contents";
-  const collectionName = "bases";
+  const collectionName = "cheeses";
 
   const database = client.db(dbName);
   const collection = database.collection(collectionName);
 
-  const baseItems = await collection.find({}, { _id: 1 }).toArray();
+  const cheeseItems = await collection.find({}, { _id: 1 }).toArray();
 
   client.close();
   return {
     fallback: "blocking",
-    paths: baseItems.map((baseItem) => ({
+    paths: cheeseItems.map((cheeseItem) => ({
       params: {
-        baseId: baseItem._id.toString(),
+        cheeseId: cheeseItem._id.toString(),
       },
     })),
   };

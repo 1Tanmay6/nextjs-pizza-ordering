@@ -16,8 +16,8 @@ const BaseSaucecheeseSpecialCurItem = ({ type }) => {
         <div className={classes.itemName}>choose a {type}</div>
         <div className={`${classes.itemDescription} ${classes.half}`}>
           <p style={{ fontSize: "21px", fontStyle: "italic" }}>
-            "Crafted with the finest ingredients, our pizza bases provide the
-            perfect foundation for a delicious and satisfying meal."
+            `Crafted with the finest ingredients, our pizza {type.toLowerCase()}{" "}
+            provide the perfect foundation for a delicious and satisfying meal.`
           </p>
           <div className={classes["button-div"]}>
             <button className={classes["btn-main"]} disabled={true}>

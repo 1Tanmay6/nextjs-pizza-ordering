@@ -4,28 +4,28 @@ import { MongoClient, ObjectId } from "mongodb";
 import BaseSauceCheeseCurItem from "../../../components/Menu/MenuUI/baseSauceCheese/CurItem";
 import BaseSauceCheeseListItems from "../../../components/Menu/MenuUI/baseSauceCheese/ListItems";
 
-const BaseDetailScreen = (props) => {
+const SauceDetailScreen = (props) => {
   const router = useRouter();
 
   return (
     <>
       <BaseSauceCheeseCurItem
         item={props.item}
-        type="BASE"
-        pushingTo="sauces"
+        type="SAUCE"
+        pushingTo="cheeses"
       />
-      <BaseSauceCheeseListItems items={props.items} domain="bases" />
+      <BaseSauceCheeseListItems items={props.items} domain="sauces" />
     </>
   );
 };
 
 // export async function getStaticProps() {
 
-export default BaseDetailScreen;
+export default SauceDetailScreen;
 // const item = await collection.findOne({ _id: ObjectId(id) });
 
 export async function getStaticProps(context) {
-  const id = context.params.baseId;
+  const id = context.params.sauceId;
   console.log(id);
 
   const uri =
@@ -36,7 +36,7 @@ export async function getStaticProps(context) {
   await client.connect();
 
   const dbName = "contents";
-  const collectionName = "bases";
+  const collectionName = "sauces";
 
   const database = client.db(dbName);
   const collection = database.collection(collectionName);
@@ -75,19 +75,19 @@ export async function getStaticPaths() {
 
   await client.connect();
   const dbName = "contents";
-  const collectionName = "bases";
+  const collectionName = "sauces";
 
   const database = client.db(dbName);
   const collection = database.collection(collectionName);
 
-  const baseItems = await collection.find({}, { _id: 1 }).toArray();
+  const sauceItems = await collection.find({}, { _id: 1 }).toArray();
 
   client.close();
   return {
     fallback: "blocking",
-    paths: baseItems.map((baseItem) => ({
+    paths: sauceItems.map((sauceItem) => ({
       params: {
-        baseId: baseItem._id.toString(),
+        sauceId: sauceItem._id.toString(),
       },
     })),
   };

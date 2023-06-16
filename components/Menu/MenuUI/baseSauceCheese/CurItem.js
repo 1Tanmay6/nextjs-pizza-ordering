@@ -3,27 +3,19 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { itemActions } from "../../../../store/item-slice";
 import { useSelector } from "react-redux";
-const BaseSauceCheeseCurItem = ({ item, type }) => {
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+const BaseSauceCheeseCurItem = ({ item, type, pushingTo }) => {
   const dispatch = useDispatch();
-  const item1 = useSelector((state) => state.item.item);
 
+  const router = useRouter();
   const backButtonHandler = () => {
     console.log("back button clicked");
   };
 
   const onchoosen = async () => {
     dispatch(itemActions.addPropsToItem({ type: type, item: item }));
-
-    const reponse = await fetch("/api/pizza", {
-      method: "POST",
-      body: JSON.stringify(item1),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (reponse.ok) {
-      console.log(reponse.body);
-    }
+    router.push(`/${pushingTo}/`);
   };
 
   return (

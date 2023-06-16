@@ -25,6 +25,7 @@ const itemSlice = createSlice({
           break;
         case "SAUCE":
           state.item.sauce = action.payload.item;
+          console.log("done");
           break;
         case "CHEESE":
           state.item.cheese = action.payload.item;
