@@ -236,3 +236,11 @@
   font-size: 35px;
   font-weight: 500;
 }
+
+.half {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

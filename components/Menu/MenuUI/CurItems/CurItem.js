@@ -2,9 +2,12 @@ import classes from "../../Menu.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { itemActions } from "../../../../store/item-slice";
+import { useDispatch } from "react-redux";
 
 const CurItem = ({ item }) => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const type = item.type == "VEG" ? true : false;
   const className = type
@@ -37,6 +40,11 @@ const CurItem = ({ item }) => {
     console.log(isdisabled);
   }, []);
 
+  const onchoosen = () => {
+    dispatch(itemActions.addPropsToItem({ type: "PIZZA", item: item }));
+    router.push("/bases/");
+  };
+
   return (
     <div className={classes.curItem}>
       <div className={classes.itemImage}>
@@ -57,7 +65,11 @@ const CurItem = ({ item }) => {
             </div>
           </div>
           <div className={classes["button-div"]}>
-            <button className={classes["btn-main"]} disabled={isdisabled}>
+            <button
+              className={classes["btn-main"]}
+              disabled={isdisabled}
+              onClick={onchoosen}
+            >
               Choose
             </button>
           </div>
