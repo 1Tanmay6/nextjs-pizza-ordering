@@ -1,0 +1,120 @@
+.cartScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 50rem;
+}
+
+.cartScreenHeader {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  box-shadow: 0px 2px #948586;
+}
+
+.cartScreenItems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cartScreenTotal {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  color: whitesmoke;
+}
+.backdrop {
+  background: #000000;
+  border: solid #bdbdbd 1px;
+  opacity: 0.7;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity= 57); /* // for IE8 */
+  filter: alpha(opacity= 57); /* //for IE5-7 */
+  position: fixed;
+  bottom: 5%;
+  height: 80%;
+  width: 80%;
+  border-radius: 40px;
+}
+
+.onBackdrop {
+  position: fixed;
+  bottom: 5%;
+  height: 80%;
+  width: 80%;
+  border-radius: 40px;
+  color: transparent;
+  justify-content: center;
+  display: flex;
+}
+
+.bottomDiv {
+  color: #d41b27;
+  flex-direction: row;
+  position: absolute;
+  padding: 20px 0px 20px 20px;
+  bottom: 0px;
+  font-size: 30px;
+  font-weight: 500;
+  width: 95%;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+.btn-main {
+  background-color: #d41b27;
+  width: 225px;
+  height: 65px;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 22px;
+  transition: all 0.5s ease-out;
+  /* box-shadow: 0px 2px #948586; */
+}
+
+.btn-main:hover {
+  background-color: #b00f1a;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+.btn-main:disabled {
+  background-color: #aaa2a2;
+  cursor: not-allowed;
+}
+
+.special-btn {
+  background-color: transparent;
+  width: 225px;
+  height: 65px;
+  border: 1px solid #d41b27;
+  border-radius: 100px;
+  color: #d41b27;
+  font-size: 22px;
+}
+
+.animate {
+  background: linear-gradient(to right, #d41b27 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+
+.special-btn.animate:hover {
+  background-position: left top;
+  cursor: pointer;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.special-btn.animate:disabled {
+  background-color: transparent;
+  color: #948586;
+  border-color: #948586;
+
+  cursor: not-allowed;
+}

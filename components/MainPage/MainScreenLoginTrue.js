@@ -18,6 +18,10 @@ const MainScreenAfterLogin = () => {
   const onNavigateContact = () => {
     router.push("/contact");
   };
+
+  const onNavigateCart = () => {
+    router.push("/cart");
+  };
   return (
     <>
       <Image
@@ -32,7 +36,10 @@ const MainScreenAfterLogin = () => {
         onClickContact={onNavigateContact}
       />
       <SpecialLoginButtons onNavigate={onNavigateLogin} />
-      <button className={`${classes["btn-main"]} ${classes["top-nav"]}`}>
+      <button
+        className={`${classes["btn-main"]} ${classes["top-nav"]}`}
+        onClick={onNavigateCart}
+      >
         <div
           style={{
             display: "flex",

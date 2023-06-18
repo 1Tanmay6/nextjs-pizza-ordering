@@ -37,6 +37,10 @@ const itemSlice = createSlice({
           break;
       }
     },
+    resetItem(state) {
+      state.item = intialState.item;
+      state.totalQuantity = intialState.totalQuantity;
+    },
   },
 });
 
