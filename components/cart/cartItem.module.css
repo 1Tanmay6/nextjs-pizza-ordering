@@ -5,7 +5,7 @@
   margin-bottom: 1rem;
   padding: 1rem;
 
-  height: 90%;
+  height: 80%;
   /* width: 90%; */
   background-color: transparent;
   color: #fff;
@@ -71,4 +71,24 @@
   overflow: scroll;
   height: 50%;
   overflow-x: hidden;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.carousel-arrow:hover {
+  background-color: #000;
+  color: #fff;
 }

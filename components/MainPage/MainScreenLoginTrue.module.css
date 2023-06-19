@@ -21,3 +21,19 @@
   right: 5%;
   position: absolute;
 }
+
+.badge {
+  background-color: white;
+  color: #d41b27;
+  height: 35px;
+  width: 35px;
+  margin: 0;
+  position: absolute;
+  top: -8px;
+  right: -1px;
+  border-radius: 100px;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  display: flex;
+}

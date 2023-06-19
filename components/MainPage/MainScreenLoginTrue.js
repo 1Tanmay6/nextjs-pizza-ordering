@@ -3,8 +3,21 @@ import TopNavButtons from "./TopNavButtons";
 import classes from "./MainScreenLoginTrue.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const MainScreenAfterLogin = () => {
+  const [cartNum, setCartNum] = useState(0);
+  useEffect(() => {
+    const getter = async () => {
+      const response = await fetch("/api/pizza", {
+        method: "GET",
+      });
+      const data = await response.json();
+      setCartNum(data.result.items.length);
+    };
+    getter();
+  }, [cartNum]);
+
   const router = useRouter();
 
   const onNavigateLogin = () => {
@@ -59,6 +72,9 @@ const MainScreenAfterLogin = () => {
           ></Image>
 
           <p style={{ fontSize: "25px", marginRight: "1rem" }}>Cart</p>
+        </div>
+        <div className={classes["badge"]}>
+          <p>{cartNum}</p>
         </div>
       </button>
     </>
