@@ -1,0 +1,31 @@
+.notification {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background-color: #1e1f20;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+  border-radius: 15px;
+  transition: top 0.5s ease-in-out;
+}
+
+.show {
+  top: 0;
+  top: 1px;
+  width: 50%;
+  margin: auto;
+  height: 55px;
+  border-radius: 15px;
+}
+
+.message {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4caf50;
+}
