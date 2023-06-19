@@ -13,6 +13,7 @@ const CartScreen = () => {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [checkout, setCheckout] = useState(false);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,6 +25,7 @@ const CartScreen = () => {
       setCartItems(body.result.items);
       setTotal(body.result.sum);
       console.log(body.result);
+      setLoading(false);
     };
 
     getter();
@@ -52,46 +54,50 @@ const CartScreen = () => {
         <h2 className={classes.cartScreenHeader}>Cart</h2>
         <div className={classes.backdrop}></div>
         <div className={classes.onBackdrop}>
-          <div
-            style={{
-              height: "85%",
-              width: "100%",
-              backgroundColor: "transparent",
-            }}
-          >
-            {cartItems.length === 0 ? (
-              <div
-                style={{
-                  color: "white",
-                  fontSize: "26px",
-                  height: "85%",
-                  width: "100%",
-                  backgroundColor: "transparent",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                Your Cart is Empty
-              </div>
-            ) : (
-              <Carousel
-                showArrows={false}
-                showThumbs={false}
-                showStatus={false}
-                infiniteLoop={true}
-                autoPlay={true}
-                interval={3000}
-                transitionTime={500}
-                stopOnHover={true}
-                useKeyboardArrows={true}
-              >
-                {cartItems.map((item) => (
-                  <CartItem item={item} key={item.id} />
-                ))}
-              </Carousel>
-            )}
-          </div>
+          {loading ? (
+            <div className={classes.spinner}></div>
+          ) : (
+            <div
+              style={{
+                height: "85%",
+                width: "100%",
+                backgroundColor: "transparent",
+              }}
+            >
+              {cartItems.length === 0 ? (
+                <div
+                  style={{
+                    color: "white",
+                    fontSize: "26px",
+                    height: "85%",
+                    width: "100%",
+                    backgroundColor: "transparent",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  Your Cart is Empty
+                </div>
+              ) : (
+                <Carousel
+                  showArrows={false}
+                  showThumbs={false}
+                  showStatus={false}
+                  infiniteLoop={true}
+                  autoPlay={true}
+                  interval={3000}
+                  transitionTime={500}
+                  stopOnHover={true}
+                  useKeyboardArrows={true}
+                >
+                  {cartItems.map((item) => (
+                    <CartItem item={item} key={item.id} />
+                  ))}
+                </Carousel>
+              )}
+            </div>
+          )}
           <div className={classes.bottomDiv}>
             <p style={{ color: "white", fontSize: "25px" }}>
               Total: ${total.toFixed(2)}

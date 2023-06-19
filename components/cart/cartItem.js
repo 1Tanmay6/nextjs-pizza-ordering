@@ -17,13 +17,6 @@ const CartItem = ({ item }) => {
         <img src={item.pizza.image} alt={item.name} />
       </div>
       <div className={classes.cartItemInfo}>
-        {/* <div className={classes.cartItemName}>{item.pizza.name}</div>
-        <div className={classes.cartItemPrice}>
-          ${item.pizza.price.toFixed(2)}
-        </div>
-        <div className={classes.cartItemQuantity}>
-          Qty: {item.pizza.quantity} */}
-        {/* </div> */}
         <div className={classes.cartItemName}>Pizza</div>
         <div className={classes.parent}>
           <div className={classes.child1}>{item.pizza.name}</div>

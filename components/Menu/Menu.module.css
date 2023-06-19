@@ -8,6 +8,8 @@
   padding-top: 20px;
   text-align: center;
   left: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
   /* background-color: #111; */
 }
 
@@ -155,6 +157,8 @@
   align-items: center;
   height: 20%;
   width: 80%;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
 
   border-radius: 30px;
   margin-top: 20px;
@@ -243,4 +247,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

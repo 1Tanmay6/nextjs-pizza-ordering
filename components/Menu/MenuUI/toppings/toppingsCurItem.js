@@ -22,7 +22,7 @@ const ToppingsCurItem = ({ item, type }) => {
   }, [id, item1]);
 
   const backButtonHandler = () => {
-    console.log("back button clicked");
+    router.back();
   };
 
   const onchoosen = async () => {

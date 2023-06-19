@@ -3,7 +3,7 @@ import Image from "next/image";
 import classes from "../../Menu.module.css";
 import { useRouter } from "next/router";
 
-const ListItem = ({ item, onIdFetcher }) => {
+const ListItem = ({ item, onIdFetcher, index }) => {
   const router = useRouter();
 
   const onNavigateHandler = () => {
@@ -15,7 +15,11 @@ const ListItem = ({ item, onIdFetcher }) => {
     ? `${classes["listItem"]} ${classes["veg-listItem"]}`
     : `${classes["listItem"]} ${classes["non-veg-listItem"]}`;
   return (
-    <button className={className} onClick={onNavigateHandler}>
+    <button
+      className={className}
+      onClick={onNavigateHandler}
+      style={{ animationDelay: `${index * 0.075}s` }}
+    >
       <div className={classes.image}>
         <img src={item.image} alt="" />
       </div>

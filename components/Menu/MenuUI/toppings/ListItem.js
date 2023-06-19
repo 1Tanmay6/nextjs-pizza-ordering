@@ -3,7 +3,7 @@ import Image from "next/image";
 import classes from "../../Menu.module.css";
 import { useRouter } from "next/router";
 
-const ToppingsListItem = ({ item, domain }) => {
+const ToppingsListItem = ({ item, domain, index }) => {
   const router = useRouter();
 
   const onNavigateHandler = () => {
@@ -16,7 +16,11 @@ const ToppingsListItem = ({ item, domain }) => {
       : `${classes["listItem"]} ${classes["non-veg-listItem"]} }`;
   const imageClass = `${classes["image"]} ${classes["round"]}`;
   return (
-    <button className={className} onClick={onNavigateHandler}>
+    <button
+      className={className}
+      onClick={onNavigateHandler}
+      style={{ animationDelay: `${index * 0.075}s` }}
+    >
       <div className={imageClass}>
         <img
           src={item.image}

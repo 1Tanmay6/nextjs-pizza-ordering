@@ -4,14 +4,8 @@ import ListItem from "./ListItem";
 const ListItems = (props) => {
   return (
     <div className={classes.listItems}>
-      {props.items.map((element) => {
-        return (
-          <ListItem
-            key={element.id}
-            item={element}
-            onIdFetcher={props.onFetch}
-          />
-        );
+      {props.items.map((element, index) => {
+        return <ListItem key={element.id} item={element} index={index} />;
       })}
       <br />
     </div>

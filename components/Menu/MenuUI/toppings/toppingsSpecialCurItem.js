@@ -1,7 +1,9 @@
 import classes from "../../Menu.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const ToppingsSpecialCurItem = () => {
+  const router = useRouter();
   return (
     <div className={classes.curItem}>
       <div className={classes.itemImage}>
@@ -25,7 +27,9 @@ const ToppingsSpecialCurItem = () => {
             </button>
           </div>
           <div className={classes["option-button-div"]}>
-            <button className={classes["option-btn"]}>Back</button>
+            <button className={classes["option-btn"]} onClick={router.back}>
+              Back
+            </button>
           </div>
         </div>
       </div>
