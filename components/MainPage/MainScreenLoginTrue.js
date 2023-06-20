@@ -53,16 +53,7 @@ const MainScreenAfterLogin = () => {
         className={`${classes["btn-main"]} ${classes["top-nav"]}`}
         onClick={onNavigateCart}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            justifyItems: "center",
-            height: "100%",
-          }}
-        >
+        <div className={classes["cart"]}>
           <Image
             src={"/images/icons/cart.png"}
             height="50"

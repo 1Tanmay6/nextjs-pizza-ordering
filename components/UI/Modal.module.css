@@ -7,6 +7,7 @@
   background: #000000;
   opacity: 0.5;
   z-index: 100;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .overlay {
@@ -20,6 +21,7 @@
   z-index: 100;
   border-radius: 40px;
   padding: 20px;
+  animation: slideIn 0.5s ease-out;
 }
 
 .title {
@@ -27,4 +29,23 @@
   text-align: center;
   font-size: 40px;
   color: #000000;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

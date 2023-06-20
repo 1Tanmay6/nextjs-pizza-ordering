@@ -22,10 +22,10 @@ const SpecialCurItem = ({ item }) => {
       console.log(body.result);
     };
     getter();
+    setDisabled(false);
     if (cartItems.length > 0 && total > 0) {
-      setDisabled(false);
     }
-  }, [total]);
+  }, [total, disabled]);
 
   const onbackHandler = () => {
     router.push("/");

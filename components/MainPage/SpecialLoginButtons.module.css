@@ -1,8 +1,10 @@
 .main-button-div {
   top: 70%;
   color: #b00f1a;
+
   width: 1000px;
   justify-content: space-evenly;
+  animation: fadeIn 0.3s ease-in;
 }
 
 .button-div {
@@ -10,6 +12,7 @@
   justify-content: center;
   align-items: center;
   background-color: #e0d9d9;
+  animation: fadeIn 0.3s ease-in;
 
   margin: 0;
   position: absolute;
@@ -77,4 +80,24 @@
   border-color: #948586;
 
   cursor: not-allowed;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
